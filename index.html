@@ -165,7 +165,7 @@ html,body{width:100%;height:100%;font-family:'Nunito',sans-serif;}
 .doa-card p em{color:var(--pu-lt);font-style:normal;font-weight:900;}
 .ameen{margin-top:12px;display:inline-block;background:var(--pu);color:#fff;font-family:'Fredoka One',sans-serif;font-size:15px;letter-spacing:2px;padding:7px 26px;border-radius:30px;box-shadow:4px 4px 0 var(--pu-dk);}
 
-/* ══ PAGE 2 — GALLERY (full screen mosaic, no button) ══ */
+/* ══ PAGE 2 — GALLERY ══ */
 .p2-wrap{
   width:100%;height:100%;
   display:flex;flex-direction:column;
@@ -175,7 +175,7 @@ html,body{width:100%;height:100%;font-family:'Nunito',sans-serif;}
 .p2-title{font-family:'Fredoka One',sans-serif;font-size:clamp(20px,5vw,40px);color:#fff;text-align:center;text-shadow:3px 3px 0 var(--pu);margin-bottom:3px;animation:popIn .6s cubic-bezier(.34,1.56,.64,1) both;}
 .p2-sub{color:rgba(255,255,255,.38);font-size:9px;letter-spacing:2px;margin-bottom:10px;text-align:center;animation:popIn .6s .1s both;}
 
-/* MOSAIC — fills nearly full viewport */
+/* MOSAIC */
 .mosaic{
   flex:1;
   width:100%;
@@ -188,17 +188,16 @@ html,body{width:100%;height:100%;font-family:'Nunito',sans-serif;}
   min-height:0;
 }
 
-/* mosaic placement — 10 cells on a 12×8 grid */
-.mc:nth-child(1) {grid-column:1/6; grid-row:1/5;}   /* big top-left */
-.mc:nth-child(2) {grid-column:6/9; grid-row:1/3;}   /* mid-top */
-.mc:nth-child(3) {grid-column:9/13;grid-row:1/3;}   /* wide top-right */
-.mc:nth-child(4) {grid-column:6/10;grid-row:3/5;}   /* mid */
-.mc:nth-child(5) {grid-column:10/13;grid-row:3/5;}  /* small corner */
-.mc:nth-child(6) {grid-column:1/5; grid-row:5/9;}   /* big bottom-left */
-.mc:nth-child(7) {grid-column:5/8; grid-row:5/7;}   /* mid */
-.mc:nth-child(8) {grid-column:8/13;grid-row:5/7;}   /* wide */
-.mc:nth-child(9) {grid-column:5/9; grid-row:7/9;}   /* mid bottom */
-.mc:nth-child(10){grid-column:9/13;grid-row:7/9;}   /* bottom-right */
+.mc:nth-child(1) {grid-column:1/6; grid-row:1/5;}
+.mc:nth-child(2) {grid-column:6/9; grid-row:1/3;}
+.mc:nth-child(3) {grid-column:9/13;grid-row:1/3;}
+.mc:nth-child(4) {grid-column:6/10;grid-row:3/5;}
+.mc:nth-child(5) {grid-column:10/13;grid-row:3/5;}
+.mc:nth-child(6) {grid-column:1/5; grid-row:5/9;}
+.mc:nth-child(7) {grid-column:5/8; grid-row:5/7;}
+.mc:nth-child(8) {grid-column:8/13;grid-row:5/7;}
+.mc:nth-child(9) {grid-column:5/9; grid-row:7/9;}
+.mc:nth-child(10){grid-column:9/13;grid-row:7/9;}
 
 .mc{
   position:relative;overflow:hidden;border-radius:7px;
@@ -221,59 +220,18 @@ html,body{width:100%;height:100%;font-family:'Nunito',sans-serif;}
 .mc.filled .slot-lbl{display:none;}
 .mc.filled img{display:block;}
 .mc.filled::after{
-  content:'✏️';position:absolute;inset:0;
+  content:'✨';position:absolute;inset:0;
   background:rgba(0,0,0,.38);
   display:flex;align-items:center;justify-content:center;
   font-size:18px;opacity:0;transition:opacity .2s;
 }
 .mc.filled:hover::after{opacity:1;}
-.file-inp{display:none;}
 
 /* lightbox */
 .lb{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:100;display:none;align-items:center;justify-content:center;flex-direction:column;gap:16px;}
 .lb.open{display:flex;}
 .lb img{max-width:88vw;max-height:72vh;border-radius:12px;border:3px solid var(--gold);box-shadow:0 0 40px rgba(124,58,237,.5);}
 .lb-close{position:absolute;top:18px;right:20px;background:var(--pu);color:#fff;font-size:20px;border:none;border-radius:50%;width:38px;height:38px;cursor:pointer;font-family:'Fredoka One',sans-serif;line-height:38px;text-align:center;box-shadow:3px 3px 0 var(--pu-dk);}
-
-/* lightbox action bar */
-.lb-actions{
-  display:flex;gap:12px;align-items:center;
-}
-.lb-act-btn{
-  display:flex;align-items:center;gap:7px;
-  font-family:'Fredoka One',sans-serif;
-  font-size:13px;letter-spacing:1px;
-  padding:9px 20px;border:none;border-radius:30px;
-  cursor:pointer;
-  transition:transform .12s,box-shadow .12s;
-}
-.lb-act-btn:hover{transform:translateY(-2px);}
-.lb-act-btn:active{transform:translateY(1px);}
-.lb-btn-ganti{
-  background:var(--pu);color:#fff;
-  box-shadow:4px 4px 0 var(--pu-dk);
-}
-.lb-btn-ganti:hover{box-shadow:6px 6px 0 var(--pu-dk);}
-.lb-btn-hapus{
-  background:#dc2626;color:#fff;
-  box-shadow:4px 4px 0 #7f1d1d;
-}
-.lb-btn-hapus:hover{box-shadow:6px 6px 0 #7f1d1d;}
-
-/* hapus confirm overlay */
-.lb-confirm{
-  display:none;flex-direction:column;align-items:center;gap:14px;
-  background:linear-gradient(135deg,var(--bg2),var(--bg3));
-  border:3px solid #dc2626;border-radius:18px;
-  padding:28px 32px;text-align:center;
-  box-shadow:6px 6px 0 #7f1d1d;
-}
-.lb-confirm.show{display:flex;}
-.lb-confirm p{color:#fff;font-family:'Fredoka One',sans-serif;font-size:16px;line-height:1.5;}
-.lb-confirm p span{color:#fca5a5;}
-.lb-confirm-btns{display:flex;gap:12px;}
-.lb-confirm-yes{background:#dc2626;color:#fff;font-family:'Fredoka One',sans-serif;font-size:13px;padding:8px 22px;border:none;border-radius:30px;box-shadow:3px 3px 0 #7f1d1d;cursor:pointer;letter-spacing:1px;}
-.lb-confirm-no{background:var(--bg3);color:var(--pu-lt);font-family:'Fredoka One',sans-serif;font-size:13px;padding:8px 22px;border:2px solid var(--pu);border-radius:30px;cursor:pointer;letter-spacing:1px;}
 
 /* ══ PAGE 3 — KATA-KATA ══ */
 .p3-name{font-family:'Fredoka One',sans-serif;font-size:clamp(12px,3vw,16px);color:var(--pu-lt);letter-spacing:3px;text-align:center;margin-bottom:4px;animation:popIn .5s both;}
@@ -308,7 +266,7 @@ html,body{width:100%;height:100%;font-family:'Nunito',sans-serif;}
   background:linear-gradient(135deg,var(--bg2),var(--bg3));
   border:3px solid var(--pu);
   box-shadow:6px 6px 0 var(--pu-dk),0 0 30px rgba(124,58,237,.4);
-  cursor:pointer;
+  cursor:default; /* Cursor default karena tidak perlu di klik upload lagi */
   overflow:hidden;
   display:flex;align-items:center;justify-content:center;
   transition:border-color .2s,box-shadow .2s;
@@ -342,7 +300,6 @@ html,body{width:100%;height:100%;font-family:'Nunito',sans-serif;}
 }
 .qr-frame.has-qr .qr-placeholder{display:none;}
 .qr-frame.has-qr .qr-img{display:block;}
-.qr-frame.has-qr{cursor:default;}
 
 .qr-desc{
   max-width:300px;width:100%;
@@ -355,19 +312,6 @@ html,body{width:100%;height:100%;font-family:'Nunito',sans-serif;}
 }
 .qr-desc p{color:rgba(255,255,255,.8);font-size:12px;line-height:1.7;font-weight:600;}
 .qr-desc p strong{color:var(--gold);font-family:'Fredoka One',sans-serif;font-size:14px;}
-
-.qr-upload-btn{
-  margin-top:4px;
-  background:var(--pu);color:#fff;
-  font-family:'Fredoka One',sans-serif;font-size:13px;
-  padding:8px 22px;border:none;border-radius:30px;
-  box-shadow:4px 4px 0 var(--pu-dk);cursor:pointer;
-  transition:transform .1s,box-shadow .1s;
-  letter-spacing:1px;
-}
-.qr-upload-btn:hover{transform:translateY(-2px);box-shadow:6px 6px 0 var(--pu-dk);}
-.qr-upload-btn:active{transform:translateY(2px);box-shadow:2px 2px 0 var(--pu-dk);}
-.qr-upload-btn.hidden{display:none;}
 
 /* ══ MUSIC PLAYER ══ */
 #music-player{
@@ -426,8 +370,8 @@ html,body{width:100%;height:100%;font-family:'Nunito',sans-serif;}
   transition:transform .15s;
   color:#fff;
   font-family:'Fredoka One',sans-serif;
+  display:none; /* Sembunyikan karena lagu sekarang 100% dari lokal */
 }
-#music-upload-btn:hover{transform:scale(1.1);}
 
 /* equalizer bars animation */
 .eq-bars{
@@ -449,24 +393,15 @@ html,body{width:100%;height:100%;font-family:'Nunito',sans-serif;}
 </head>
 <body>
 
-<!-- ══ ENVELOPE SCREEN ══ -->
-<!-- AUDIO PLAYER (hidden) -->
-<audio id="bg-music" loop>
-  <!-- Taruh file lagu kamu di sini, contoh: -->
-  <!-- <source src="lagu.mp3" type="audio/mpeg"> -->
-  <!-- Atau gunakan tombol upload di pojok kanan bawah -->
-</audio>
+<audio id="bg-music" src="song.mp3" loop></audio>
 
-<!-- MUSIC PLAYER UI -->
 <div id="music-player">
-  <div id="music-label">♪ Tidak ada lagu</div>
+  <div id="music-label">♪ song.mp3</div>
   <button id="music-upload-btn" title="Upload lagu">📂</button>
-  <input type="file" id="music-file-inp" accept="audio/*" style="display:none;">
   <button id="music-btn" title="Play/Pause musik" class="paused">
     <span id="music-icon">🎵</span>
   </button>
 </div>
-
 
 <div id="env-screen">
   <div class="env-title">💜 Ada Pesan Spesial untuk<br><span>Annisa Fera</span> 💜</div>
@@ -496,7 +431,6 @@ html,body{width:100%;height:100%;font-family:'Nunito',sans-serif;}
   <div class="env-cta">✦ Klik amplop untuk membuka ✦</div>
 </div>
 
-<!-- ══ MAIN SITE ══ -->
 <div id="site">
 
   <div id="page-label">Halaman 1 — Doa 🤲</div>
@@ -509,34 +443,17 @@ html,body{width:100%;height:100%;font-family:'Nunito',sans-serif;}
     <div class="dot" id="d3"></div>
   </div>
 
-  <!-- lightbox -->
   <div class="lb" id="lb">
     <button class="lb-close" id="lb-close">✕</button>
     <img id="lb-img" src="" alt="foto besar" />
-    <!-- action buttons -->
-    <div class="lb-actions" id="lb-actions">
-      <button class="lb-act-btn lb-btn-ganti" id="lb-btn-ganti">✏️ Ganti Foto</button>
-      <button class="lb-act-btn lb-btn-hapus" id="lb-btn-hapus">🗑️ Hapus Foto</button>
-    </div>
-    <!-- confirm hapus -->
-    <div class="lb-confirm" id="lb-confirm">
-      <p>Yakin mau hapus foto ini?<br><span>Data akan dihapus permanen dari browser.</span></p>
-      <div class="lb-confirm-btns">
-        <button class="lb-confirm-yes" id="lb-confirm-yes">🗑️ Ya, Hapus</button>
-        <button class="lb-confirm-no"  id="lb-confirm-no">Batal</button>
-      </div>
-    </div>
-    <!-- hidden file input for replace -->
-    <input type="file" id="lb-file-inp" accept="image/*" style="display:none;">
   </div>
 
   <div class="pages-wrap" id="wrap">
 
-    <!-- PAGE 1: DOA -->
     <div class="page">
       <div class="p1-name">🎀 UNTUK ANNISA FERA 🎀</div>
       <div class="p1-title">Selamat<br><span>Ulang Tahun!</span></div>
-      <div class="p1-sub">💜ISTRIKU TERNCINTA💜</div>
+      <div class="p1-sub">💜ISTRIKU TERCINTA💜</div>
       <div class="doa-card">
         <span class="doa-icon">🤲</span>
         <h3>Doa untuk Annisa Fera</h3>
@@ -556,7 +473,6 @@ html,body{width:100%;height:100%;font-family:'Nunito',sans-serif;}
       </div>
     </div>
 
-    <!-- PAGE 2: GALLERY (full screen, no button) -->
     <div class="page" style="padding:0;">
       <div class="p2-wrap">
         <div class="p2-title">📸 Memories Of Us</div>
@@ -565,7 +481,6 @@ html,body{width:100%;height:100%;font-family:'Nunito',sans-serif;}
       </div>
     </div>
 
-    <!-- PAGE 3: KATA-KATA -->
     <div class="page">
       <div class="p3-name">🎀 UNTUK Istriku Annisa Fera 🎀</div>
       <div class="p3-title">💌 Kata-Kata<br><span style="color:var(--gold)">Untukmu</span></div>
@@ -597,7 +512,6 @@ html,body{width:100%;height:100%;font-family:'Nunito',sans-serif;}
       <button class="cel-btn" id="cel-btn">🎁 Lihat Hadiah 🎁</button>
     </div>
 
-    <!-- PAGE 4: HADIAH / QR CODE -->
     <div class="page">
       <div class="p4-name">🎀 SPESIAL UNTUK ANNISA FERA 🎀</div>
       <div class="p4-title">🎁 Hadiah<br><span style="color:var(--gold)">Untukmu</span></div>
@@ -608,13 +522,11 @@ html,body{width:100%;height:100%;font-family:'Nunito',sans-serif;}
           <div class="qr-corners-bl"></div>
           <div class="qr-placeholder">
             <div class="qr-icon">🎁</div>
-            <div>Klik untuk upload<br>foto QR Code</div>
-            <div class="qr-hint">PNG / JPG / JPEG</div>
+            <div>QR Code<br>Tidak Ditemukan</div>
+            <div class="qr-hint">Pastikan file qr.jpg ada</div>
           </div>
           <img class="qr-img" id="qr-img" alt="QR Code Hadiah" />
         </div>
-        <input type="file" id="qr-file-inp" accept="image/*" style="display:none;">
-        <button class="qr-upload-btn" id="qr-upload-btn">📷 Upload Foto QR</button>
         <div class="qr-desc">
           <p><strong>🎁 Ada hadiah spesial untukmu!</strong><br>
           Scan QR Code di atas menggunakan<br>kamera HP kamu untuk melihat<br>kejutan dari aku. 💜✨</p>
@@ -629,52 +541,7 @@ html,body{width:100%;height:100%;font-family:'Nunito',sans-serif;}
 (function () {
 
   /* ════════════════════════════════════════════
-     IndexedDB — simpan & muat data permanen
-     DB: "birthdayDB"  Store: "assets"
-     Keys: "music", "photo_0"…"photo_9", "qr"
-  ════════════════════════════════════════════ */
-  var DB_NAME    = 'birthdayDB';
-  var DB_VERSION = 1;
-  var STORE      = 'assets';
-  var db         = null;
-
-  function openDB(cb) {
-    if (db) { cb(db); return; }
-    var req = indexedDB.open(DB_NAME, DB_VERSION);
-    req.onupgradeneeded = function (e) {
-      e.target.result.createObjectStore(STORE);
-    };
-    req.onsuccess = function (e) {
-      db = e.target.result;
-      cb(db);
-    };
-    req.onerror = function () { console.warn('IndexedDB gagal dibuka'); };
-  }
-
-  function dbSet(key, value, cb) {
-    openDB(function (d) {
-      var tx  = d.transaction(STORE, 'readwrite');
-      var req = tx.objectStore(STORE).put(value, key);
-      req.onsuccess = function () { if (cb) cb(); };
-    });
-  }
-
-  function dbGet(key, cb) {
-    openDB(function (d) {
-      var req = d.transaction(STORE, 'readonly').objectStore(STORE).get(key);
-      req.onsuccess = function () { cb(req.result); };
-      req.onerror   = function () { cb(null); };
-    });
-  }
-
-  function dbDel(key) {
-    openDB(function (d) {
-      d.transaction(STORE, 'readwrite').objectStore(STORE).delete(key);
-    });
-  }
-
-  /* ════════════════════════════════════════════
-     ENVELOPE
+     ENVELOPE (DAN AUTOPLAY MUSIK)
   ════════════════════════════════════════════ */
   var envWrap   = document.getElementById('env-wrap');
   var envScreen = document.getElementById('env-screen');
@@ -685,18 +552,20 @@ html,body{width:100%;height:100%;font-family:'Nunito',sans-serif;}
     if (opened) return;
     opened = true;
     envWrap.classList.add('opening');
+    
+    // Mulai musik saat amplop diklik
+    if (hasMusic && !isPlaying) {
+      audio.play().then(function () {
+        setPlayingState(true); showLabel();
+      }).catch(function(e){
+        console.warn('Browser mencegah pemutaran otomatis:', e);
+      });
+    }
+
     setTimeout(function () {
       envScreen.classList.add('gone');
       site.classList.add('visible');
       setTimeout(launchConfetti, 350);
-      /* auto-play setelah amplop dibuka */
-      setTimeout(function () {
-        if (hasMusic && !isPlaying) {
-          audio.play().then(function () {
-            setPlayingState(true); showLabel();
-          }).catch(function(){});
-        }
-      }, 1600);
     }, 1450);
   });
 
@@ -733,16 +602,32 @@ html,body{width:100%;height:100%;font-family:'Nunito',sans-serif;}
   });
 
   /* ════════════════════════════════════════════
-     BUILD MOSAIC
+     BUILD MOSAIC (LOAD DARI FOLDER LOKAL)
   ════════════════════════════════════════════ */
-  var mosaic    = document.getElementById('mosaic');
-  var slots     = [];
+  var mosaic = document.getElementById('mosaic');
+  var slots  = [];
+  
+  // Daftar path foto lokal
+  var localPhotos = [
+    'foto/foto1.jpg',
+    'foto/foto2.jpg',
+    'foto/foto3.jpg',
+    'foto/foto4.jpg',
+    'foto/foto5.jpg',
+    'foto/foto6.jpg',
+    'foto/foto7.jpg',
+    'foto/foto8.jpg',
+    'foto/foto9.jpg',
+    'foto/foto10.jpg'
+  ];
+
   var slotEmoji = ['💜','🎂','🎮','✨','🌟','💖','🎉','🌙','🎊','💛'];
 
   for (var i = 0; i < 10; i++) {
     (function (idx) {
-      var mc  = document.createElement('div');
-      mc.className = 'mc'; mc.setAttribute('data-idx', idx);
+      var mc = document.createElement('div');
+      mc.className = 'mc filled'; 
+      mc.setAttribute('data-idx', idx);
 
       var lbl = document.createElement('div');
       lbl.className = 'slot-lbl';
@@ -750,18 +635,20 @@ html,body{width:100%;height:100%;font-family:'Nunito',sans-serif;}
       mc.appendChild(lbl);
 
       var img = document.createElement('img');
+      img.src = localPhotos[idx];
       img.alt = 'foto ' + (idx+1);
+      
+      // Jika foto gagal diload dari folder lokal
+      img.onerror = function() {
+        mc.classList.remove('filled');
+      };
+      
       mc.appendChild(img);
-
-      var inp = document.createElement('input');
-      inp.type = 'file'; inp.accept = 'image/*'; inp.className = 'file-inp';
-      document.body.appendChild(inp);
-      inp.addEventListener('change', function (e) { loadSlot(idx, e.target.files[0]); });
 
       mc.addEventListener('click', function (e) {
         if (mc.classList.contains('filled')) {
           openLightbox(idx);
-        } else { inp.click(); }
+        }
         e.stopPropagation();
       });
 
@@ -770,44 +657,19 @@ html,body{width:100%;height:100%;font-family:'Nunito',sans-serif;}
     })(i);
   }
 
-  /* Tampilkan gambar di slot */
-  function applySlot(idx, dataUrl) {
-    slots[idx].img.src = dataUrl;
-    slots[idx].el.classList.add('filled');
-  }
-
-  function loadSlot(idx, file) {
-    if (!file) return;
-    var r = new FileReader();
-    r.onload = function (ev) {
-      applySlot(idx, ev.target.result);
-      dbSet('photo_' + idx, { dataUrl: ev.target.result, name: file.name });
-    };
-    r.readAsDataURL(file);
-  }
-
   /* ════════════════════════════════════════════
-     LIGHTBOX — dengan Ganti & Hapus
+     LIGHTBOX — (Mode Lihat Saja)
   ════════════════════════════════════════════ */
-  var lb          = document.getElementById('lb');
-  var lbImg       = document.getElementById('lb-img');
-  var lbActions   = document.getElementById('lb-actions');
-  var lbConfirm   = document.getElementById('lb-confirm');
-  var lbFileInp   = document.getElementById('lb-file-inp');
-  var activeIdx   = -1; /* index slot yang sedang dibuka */
+  var lb    = document.getElementById('lb');
+  var lbImg = document.getElementById('lb-img');
 
   function openLightbox(idx) {
-    activeIdx = idx;
     lbImg.src = slots[idx].img.src;
-    lbActions.style.display = 'flex';
-    lbConfirm.classList.remove('show');
     lb.classList.add('open');
   }
 
   function closeLightbox() {
     lb.classList.remove('open');
-    lbConfirm.classList.remove('show');
-    activeIdx = -1;
   }
 
   document.getElementById('lb-close').addEventListener('click', closeLightbox);
@@ -815,55 +677,6 @@ html,body{width:100%;height:100%;font-family:'Nunito',sans-serif;}
     if (e.target === lb) closeLightbox();
   });
 
-  /* — GANTI FOTO — */
-  document.getElementById('lb-btn-ganti').addEventListener('click', function () {
-    if (activeIdx < 0) return;
-    lbFileInp.click();
-  });
-
-  lbFileInp.addEventListener('change', function (e) {
-    var file = e.target.files[0];
-    if (!file || activeIdx < 0) return;
-    var r = new FileReader();
-    r.onload = function (ev) {
-      applySlot(activeIdx, ev.target.result);
-      dbSet('photo_' + activeIdx, { dataUrl: ev.target.result, name: file.name });
-      lbImg.src = ev.target.result; /* update preview lightbox langsung */
-      showToast('✏️ Foto ' + (activeIdx+1) + ' berhasil diganti!');
-    };
-    r.readAsDataURL(file);
-    lbFileInp.value = ''; /* reset agar bisa pilih file sama lagi */
-  });
-
-  /* — HAPUS FOTO — */
-  document.getElementById('lb-btn-hapus').addEventListener('click', function () {
-    lbActions.style.display = 'none';
-    lbConfirm.classList.add('show');
-  });
-
-  document.getElementById('lb-confirm-no').addEventListener('click', function () {
-    lbConfirm.classList.remove('show');
-    lbActions.style.display = 'flex';
-  });
-
-  document.getElementById('lb-confirm-yes').addEventListener('click', function () {
-    if (activeIdx < 0) return;
-    var idx = activeIdx;
-    /* hapus dari UI */
-    slots[idx].img.src = '';
-    slots[idx].el.classList.remove('filled');
-    if (slots[idx].saveOvr) {
-      slots[idx].saveOvr.remove();
-      slots[idx].saveOvr = null;
-    }
-    /* hapus dari IndexedDB */
-    dbDel('photo_' + idx);
-    /* cek apakah masih ada foto tersisa */
-    var masihAda = slots.some(function (s) { return s.el.classList.contains('filled'); });
-    if (!masihAda) savePhotosBtn.classList.add('disabled');
-    showToast('🗑️ Foto ' + (idx+1) + ' dihapus!');
-    closeLightbox();
-  });
 
   /* ════════════════════════════════════════════
      CONFETTI
@@ -890,36 +703,27 @@ html,body{width:100%;height:100%;font-family:'Nunito',sans-serif;}
   }
   document.getElementById('cel-btn').addEventListener('click', function () { setPage(3); });
 
+
   /* ════════════════════════════════════════════
-     QR CODE
+     LOAD LOKAL QR CODE
   ════════════════════════════════════════════ */
-  var qrFrame     = document.getElementById('qr-frame');
-  var qrImg       = document.getElementById('qr-img');
-  var qrFileInp   = document.getElementById('qr-file-inp');
-  var qrUploadBtn = document.getElementById('qr-upload-btn');
-
-  function applyQR(dataUrl) {
-    qrImg.src = dataUrl;
-    qrFrame.classList.add('has-qr');
-    qrUploadBtn.textContent = '✏️ Ganti Foto QR';
-    saveQrBtn.classList.remove('disabled');
-  }
-
-  qrFrame.addEventListener('click', function () {
-    if (!qrFrame.classList.contains('has-qr')) qrFileInp.click();
-  });
-  qrUploadBtn.addEventListener('click', function () { qrFileInp.click(); });
-  qrFileInp.addEventListener('change', function (e) {
-    var file = e.target.files[0];
-    if (!file) return;
-    var r = new FileReader();
-    r.onload = function (ev) {
-      applyQR(ev.target.result);
-      dbSet('qr', { dataUrl: ev.target.result, name: file.name });
-      showToast('📷 QR tersimpan di browser!');
+  function loadLocalQR() {
+    var qrFrame = document.getElementById('qr-frame');
+    var qrImg   = document.getElementById('qr-img');
+    
+    var imgTest = new Image();
+    imgTest.onload = function() {
+      qrImg.src = 'qr.jpg';
+      qrFrame.classList.add('has-qr');
     };
-    r.readAsDataURL(file);
-  });
+    imgTest.onerror = function() {
+      console.warn("File 'qr.jpg' tidak ditemukan di folder.");
+    };
+    imgTest.src = 'qr.jpg';
+  }
+  
+  loadLocalQR();
+
 
   /* ════════════════════════════════════════════
      MUSIC PLAYER
@@ -928,10 +732,9 @@ html,body{width:100%;height:100%;font-family:'Nunito',sans-serif;}
   var musicBtn     = document.getElementById('music-btn');
   var musicIcon    = document.getElementById('music-icon');
   var musicLabel   = document.getElementById('music-label');
-  var musicFileInp = document.getElementById('music-file-inp');
-  var musicUpBtn   = document.getElementById('music-upload-btn');
+  
   var isPlaying    = false;
-  var hasMusic     = false;
+  var hasMusic     = true; 
 
   function setPlayingState(playing) {
     isPlaying = playing;
@@ -950,84 +753,14 @@ html,body{width:100%;height:100%;font-family:'Nunito',sans-serif;}
     musicLabel._hideTimer = setTimeout(function () { musicLabel.classList.remove('show'); }, 3000);
   }
 
-  function applyMusic(blob, name) {
-    var url = URL.createObjectURL(blob);
-    audio.src = url;
-    hasMusic   = true;
-    musicFileName = name;
-    var short = name.replace(/\.[^/.]+$/, '');
-    musicLabel.textContent = '♪ ' + (short.length > 22 ? short.substring(0, 22) + '…' : short);
-    saveMusicBtn.classList.remove('disabled');
-    showLabel();
-  }
-
   musicBtn.addEventListener('click', function () {
-    if (!hasMusic) { musicFileInp.click(); return; }
     if (isPlaying) { audio.pause(); setPlayingState(false); }
     else { audio.play().catch(function(){}); setPlayingState(true); }
-  });
-  musicUpBtn.addEventListener('click', function () { musicFileInp.click(); });
-
-  musicFileInp.addEventListener('change', function (e) {
-    var file = e.target.files[0];
-    if (!file) return;
-    applyMusic(file, file.name);
-    /* simpan blob ke IndexedDB */
-    var r = new FileReader();
-    r.onload = function (ev) {
-      dbSet('music', { dataUrl: ev.target.result, name: file.name });
-      showToast('🎵 Lagu tersimpan di browser!');
-    };
-    r.readAsDataURL(file);
-    audio.play().then(function () { setPlayingState(true); }).catch(function(){});
   });
 
   audio.addEventListener('play',  function () { setPlayingState(true);  });
   audio.addEventListener('pause', function () { setPlayingState(false); });
 
-  /* ════════════════════════════════════════════
-     MUAT DATA DARI IndexedDB saat halaman dibuka
-  ════════════════════════════════════════════ */
-  function loadAllFromDB() {
-    /* muat lagu */
-    dbGet('music', function (rec) {
-      if (!rec || !rec.dataUrl) return;
-      /* dataUrl → Blob agar bisa pakai createObjectURL */
-      fetch(rec.dataUrl)
-        .then(function (r) { return r.blob(); })
-        .then(function (blob) {
-          applyMusic(blob, rec.name);
-        });
-    });
-
-    /* muat foto galeri */
-    for (var i = 0; i < 10; i++) {
-      (function (idx) {
-        dbGet('photo_' + idx, function (rec) {
-          if (rec && rec.dataUrl) applySlot(idx, rec.dataUrl);
-        });
-      })(i);
-    }
-
-    /* muat QR */
-    dbGet('qr', function (rec) {
-      if (rec && rec.dataUrl) applyQR(rec.dataUrl);
-    });
-  }
-
-  loadAllFromDB();
-
-  /* ════════════════════════════════════════════
-     HAPUS DATA — tombol reset (opsional)
-     Uncomment jika ingin tombol hapus semua data
-  ════════════════════════════════════════════ */
-  // function clearAllData() {
-  //   openDB(function(d){
-  //     d.transaction(STORE,'readwrite').objectStore(STORE).clear();
-  //     showToast('🗑️ Semua data dihapus!');
-  //     setTimeout(function(){ location.reload(); }, 1500);
-  //   });
-  // }
 
   /* ════════════════════════════════════════════
      FLOATING PIXEL BG
